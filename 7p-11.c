@@ -16,9 +16,23 @@ int main(void){
     while((letterInLastName = toupper(getchar())) == ' ');
     putchar(letterInLastName);
 
-    while((letterInLastName = getchar()) != ' ')
-        putchar(letterInLastName);
+    // while((letterInLastName = getchar()) != ' ')
+    //     putchar(letterInLastName);
 
+    for (;;){
+        letterInLastName = getchar();
+        switch(letterInLastName){
+            case ' ':
+                goto print_initial;
+            case '\n':
+                goto print_initial;
+            default:
+                putchar(letterInLastName);
+                break;
+        }
+    }
+    
+    print_initial:
     printf(", %c.", initial);
 
     return 0;
